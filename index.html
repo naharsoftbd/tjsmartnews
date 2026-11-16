@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>টিজে স্মার্ট নিউজ | TJ Smart News</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@400;600;700;900&family=Hind+Siliguri:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          serif: ['"Noto Serif Bengali"', 'serif'],
+          sans:  ['"Hind Siliguri"', 'sans-serif'],
+        },
+        colors: {
+          brand: {
+            50:  '#fef2f2',
+            500: '#dc2626',
+            600: '#b91c1c',
+            700: '#991b1b',
+            900: '#7f1d1d',
+          },
+          ink: '#111827',
+        }
+      }
+    }
+  }
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  .ticker {
+    animation: ticker 40s linear infinite;
+    white-space: nowrap;
+  }
+  @keyframes ticker {
+    0%   { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+  }
+  .line-clamp-2 { display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+  .line-clamp-3 { display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
+  .line-clamp-4 { display:-webkit-box; -webkit-line-clamp:4; -webkit-box-orient:vertical; overflow:hidden; }
+</style>
+</head>
+<body class="font-sans bg-gray-50 text-ink">
+
+<!-- ============ TOP BAR ============ -->
+<div class="bg-ink text-gray-200 text-xs">
+  <div class="max-w-7xl mx-auto px-4 py-2 flex flex-wrap items-center justify-between gap-2">
+    <div class="flex items-center gap-4">
+      <span>📅 সোমবার, ১৬ নভেম্বর ২০২৬ | ১ অগ্রহায়ণ ১৪৩৩</span>
+      <span class="hidden md:inline">🌤️ ঢাকা ২৮°সে</span>
+    </div>
+    <div class="flex items-center gap-3">
+      <a href="#" class="hover:text-brand-500">ই-পেপার</a>
+      <span class="text-gray-600">|</span>
+      <a href="#" class="hover:text-brand-500">আর্কাইভ</a>
+      <span class="text-gray-600">|</span>
+      <a href="#" class="hover:text-brand-500">যোগাযোগ</a>
+      <span class="text-gray-600">|</span>
+      <a href="#" class="hover:text-white font-semibold">সাবস্ক্রাইব</a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ MASTHEAD ============ -->
+<header class="bg-white border-b-4 border-brand-600">
+  <div class="max-w-7xl mx-auto px-4 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
+    <div class="text-center md:text-left">
+      <h1 class="font-serif font-black text-4xl md:text-5xl tracking-tight">
+        <span class="text-brand-600">টিজে</span> স্মার্ট নিউজ
+      </h1>
+      <p class="text-xs text-gray-500 mt-1 italic">সত্যের সন্ধানে • প্রজ্ঞার আলোকে • ২০১৫ সাল থেকে বিশ্বস্ত</p>
+    </div>
+    <div class="flex items-center gap-3">
+      <div class="relative w-full md:w-72">
+        <input type="text" placeholder="খুঁজুন..." class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-brand-500" />
+        <svg class="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M10.5 18a7.5 7.5 0 100-15 7.5 7.5 0 000 15z"/></svg>
+      </div>
+      <button class="bg-brand-600 hover:bg-brand-700 text-white px-4 py-2 rounded-full text-sm font-semibold">লগইন</button>
+    </div>
+  </div>
+
+  <!-- ============ NAV ============ -->
+  <nav class="bg-brand-600 text-white">
+    <div class="max-w-7xl mx-auto px-4">
+      <ul class="flex flex-wrap items-center gap-1 text-sm font-semibold">
+        <li><a href="#" class="px-3 py-3 hover:bg-brand-700 block">প্রচ্ছদ</a></li>
+        <li><a href="#" class="px-3 py-3 hover:bg-brand-700 block">জাতীয়</a></li>
+        <li><a href="#" class="px-3 py-3 hover:bg-brand-700 block">রাজনীতি</a></li>
+        <li><a href="#" class="px-3 py-3 hover:bg-brand-700 block">অর্থনীতি</a></li>
+        <li><a href="#" class="px-3 py-3 hover:bg-brand-700 block">আন্তর্জাতিক</a></li>
+        <li><a href="#" class="px-3 py-3 hover:bg-brand-700 block">খেলা</a></li>
+        <li><a href="#" class="px-3 py-3 hover:bg-brand-700 block">বিনোদন</a></li>
+        <li><a href="#" class="px-3 py-3 hover:bg-brand-700 block">প্রযুক্তি</a></li>
+        <li><a href="#" class="px-3 py-3 hover:bg-brand-700 block">শিক্ষা</a></li>
+        <li><a href="#" class="px-3 py-3 hover:bg-brand-700 block">মতামত</a></li>
+        <li><a href="#" class="px-3 py-3 hover:bg-brand-700 block">লাইফস্টাইল</a></li>
+        <li><a href="#" class="px-3 py-3 hover:bg-brand-700 block bg-brand-900">📹 ভিডিও</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<!-- ============ BREAKING TICKER ============ -->
+<div class="bg-white border-b">
+  <div class="max-w-7xl mx-auto px-4 py-2 flex items-center gap-4">
+    <span class="bg-brand-600 text-white text-xs font-bold px-3 py-1 rounded animate-pulse">ব্রেকিং</span>
+    <div class="overflow-hidden flex-1">
+      <div class="ticker font-semibold text-sm">
+        🔴 জাতীয় সংসদে আজ নতুন বাজেট প্রস্তাব উত্থাপন • 🔴 ঢাকা-চট্টগ্রাম এক্সপ্রেওয়েতে যানবাহন চলাচল শুরু • 🔴 বিশ্বকাপ বাছাইয়ে বাংলাদেশের ঐতিহাসিক জয় • 🔴 শেয়ারবাজারে ঊর্ধ্বমুখী ধারা অব্যাহত
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ HERO ============ -->
+<main class="max-w-7xl mx-auto px-4 py-8">
+  <div class="grid lg:grid-cols-3 gap-8">
+
+    <!-- Main Story -->
+    <section class="lg:col-span-2">
+      <article class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition">
+        <div class="relative">
+          <img src="https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=1200&q=80" alt="" class="w-full h-80 object-cover">
+          <span class="absolute top-3 left-3 bg-brand-600 text-white text-xs font-bold px-3 py-1 rounded">জাতীয়</span>
+        </div>
+        <div class="p-6">
+          <h2 class="font-serif text-3xl md:text-4xl font-bold leading-tight mb-3 hover:text-brand-600 cursor-pointer">
+            দেশের অর্থনৈতিক প্রবৃদ্ধি ৮ শতাংশ ছাড়িয়েছে: অর্থমন্ত্রী
+          </h2>
+          <p class="text-gray-600 leading-relaxed mb-4">
+            অর্থমন্ত্রী আজ জাতীয় সংসদে জানান, চলতি অর্থবছরে দেশের জিডিপি প্রবৃদ্ধি ৮.২%-এ পৌঁছেছে। রপ্তানি আয়, রেমিট্যান্স ও কৃষি খাতের সাফল্য এই অর্জনের পেছনে মূল ভূমিকা রেখেছে বলে তিনি উল্লেখ করেন।
+          </p>
+          <div class="flex items-center gap-4 text-xs text-gray-500">
+            <span class="flex items-center gap-1">✍️ স্টাফ রিপোর্টার</span>
+            <span>🕒 ২ ঘণ্টা আগে</span>
+            <span>💬 ২৪৮ মন্তব্য</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Sub stories -->
+      <div class="grid md:grid-cols-2 gap-6 mt-6">
+        <article class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition">
+          <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=600&q=80" class="w-full h-44 object-cover" alt="">
+          <div class="p-4">
+            <span class="text-xs font-bold text-brand-600">খেলা</span>
+            <h3 class="font-serif text-xl font-bold mt-1 hover:text-brand-600 cursor-pointer line-clamp-2">
+              বিশ্বকাপ বাছাইয়ে বাংলাদেশের বিপক্ষে ভারতের পরাজয়
+            </h3>
+            <p class="text-sm text-gray-500 mt-2">৩ ঘণ্টা আগে</p>
+          </div>
+        </article>
+        <article class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition">
+          <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=80" class="w-full h-44 object-cover" alt="">
+          <div class="p-4">
+            <span class="text-xs font-bold text-brand-600">প্রযুক্তি</span>
+            <h3 class="font-serif text-xl font-bold mt-1 hover:text-brand-600 cursor-pointer line-clamp-2">
+              দেশীয় উদ্যোক্তাদের তৈরি এআই চ্যাটবট বাজারে
+            </h3>
+            <p class="text-sm text-gray-500 mt-2">৫ ঘণ্টা আগে</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Sidebar -->
+    <aside class="space-y-6">
+      <!-- Most Read -->
+      <div class="bg-white rounded-lg shadow-sm p-5">
+        <h3 class="font-serif font-bold text-lg border-b-2 border-brand-600 pb-2 mb-4">🔥 সর্বাধিক পঠিত</h3>
+        <ol class="space-y-4">
+          <li class="flex gap-3 group cursor-pointer">
+            <span class="font-serif text-3xl font-black text-brand-600">০১</span>
+            <p class="font-semibold text-sm leading-snug group-hover:text-brand-600">মেট্রোরেলের নতুন রুটের কাজ শুরু আগামী মাসে</p>
+          </li>
+          <li class="flex gap-3 group cursor-pointer">
+            <span class="font-serif text-3xl font-black text-brand-600">০২</span>
+            <p class="font-semibold text-sm leading-snug group-hover:text-brand-600">ডলারের বিপরীতে টাকার মান স্থিতিশীল</p>
+          </li>
+          <li class="flex gap-3 group cursor-pointer">
+            <span class="font-serif text-3xl font-black text-brand-600">০৩</span>
+            <p class="font-semibold text-sm leading-snug group-hover:text-brand-600">শীতের প্রকোপ বাড়ছে, স্বাস্থ্য সতর্কতা জারি</p>
+          </li>
+          <li class="flex gap-3 group cursor-pointer">
+            <span class="font-serif text-3xl font-black text-brand-600">০৪</span>
+            <p class="font-semibold text-sm leading-snug group-hover:text-brand-600">নতুন শিক্ষাক্রম নিয়ে শিক্ষকদের মিশ্র প্রতিক্রিয়া</p>
+          </li>
+          <li class="flex gap-3 group cursor-pointer">
+            <span class="font-serif text-3xl font-black text-brand-600">০৫</span>
+            <p class="font-semibold text-sm leading-snug group-hover:text-brand-600">বক্সিংয়ে দক্ষিণ এশীয় চ্যাম্পিয়নশিপে স্বর্ণ পেল বাংলাদেশ</p>
+          </li>
+        </ol>
+      </div>
+
+      <!-- Ad placeholder -->
+      <div class="bg-gradient-to-br from-brand-50 to-white border border-dashed border-brand-500 rounded-lg p-6 text-center">
+        <p class="text-xs text-gray-400 uppercase tracking-widest">বিজ্ঞাপন</p>
+        <p class="font-serif font-bold text-brand-700 mt-2">আপনার ব্র্যান্ড<br>এখানে বিজ্ঞাপন দিন</p>
+        <button class="mt-3 text-xs bg-brand-600 text-white px-4 py-1.5 rounded-full">যোগাযোগ</button>
+      </div>
+
+      <!-- Newsletter -->
+      <div class="bg-ink text-white rounded-lg p-5">
+        <h3 class="font-serif font-bold text-lg mb-2">📬 নিউজলেটার</h3>
+        <p class="text-sm text-gray-300 mb-3">প্রতিদিনের গুরুত্বপূর্ণ খবর সরাসরি আপনার ইনবক্সে।</p>
+        <input type="email" placeholder="আপনার ইমেইল" class="w-full px-3 py-2 rounded text-sm text-ink mb-2" />
+        <button class="w-full bg-brand-600 hover:bg-brand-700 py-2 rounded text-sm font-semibold">সাবস্ক্রাইব</button>
+      </div>
+    </aside>
+  </div>
+
+  <!-- ============ CATEGORY GRID ============ -->
+  <section class="mt-12">
+    <div class="flex items-center justify-between mb-6 border-b-2 border-ink pb-2">
+      <h2 class="font-serif text-2xl font-bold">📰 সর্বশেষ সংবাদ</h2>
+      <a href="#" class="text-sm text-brand-600 font-semibold hover:underline">সবগুলো দেখুন →</a>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- Card 1 -->
+      <article class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition group">
+        <img src="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=500&q=80" class="w-full h-40 object-cover" alt="">
+        <div class="p-4">
+          <span class="text-xs font-bold text-brand-600">আন্তর্জাতিক</span>
+          <h3 class="font-serif font-bold mt-1 group-hover:text-brand-600 line-clamp-3">জলবায়ু সম্মেলনে বাংলাদেশের প্রতিনিধি দলের গুরুত্বপূর্ণ বক্তব্য</h3>
+          <p class="text-xs text-gray-500 mt-2">🕒 ৬ ঘণ্টা আগে</p>
+        </div>
+      </article>
+      <!-- Card 2 -->
+      <article class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition group">
+        <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=500&q=80" class="w-full h-40 object-cover" alt="">
+        <div class="p-4">
+          <span class="text-xs font-bold text-brand-600">অর্থনীতি</span>
+          <h3 class="font-serif font-bold mt-1 group-hover:text-brand-600 line-clamp-3">শেয়ারবাজারে বিনিয়োগকারীদের আস্থা ফিরছে: বিএসইসি</h3>
+          <p class="text-xs text-gray-500 mt-2">🕒 ৭ ঘণ্টা আগে</p>
+        </div>
+      </article>
+      <!-- Card 3 -->
+      <article class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition group">
+        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=500&q=80" class="w-full h-40 object-cover" alt="">
+        <div class="p-4">
+          <span class="text-xs font-bold text-brand-600">শিক্ষা</span>
+          <h3 class="font-serif font-bold mt-1 group-hover:text-brand-600 line-clamp-3">বিশ্ববিদ্যালয় ভর্তি পরীক্ষার নতুন সময়সূচি প্রকাশ</h3>
+          <p class="text-xs text-gray-500 mt-2">🕒 ৮ ঘণ্টা আগে</p>
+        </div>
+      </article>
+      <!-- Card 4 -->
+      <article class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition group">
+        <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=500&q=80" class="w-full h-40 object-cover" alt="">
+        <div class="p-4">
+          <span class="text-xs font-bold text-brand-600">বিনোদন</span>
+          <h3 class="font-serif font-bold mt-1 group-hover:text-brand-600 line-clamp-3">নতুন ছবি 'স্মৃতির শহর' মুক্তি পেল ঢাকায়</h3>
+          <p class="text-xs text-gray-500 mt-2">🕒 ৯ ঘণ্টা আগে</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ OPINION + VIDEO ============ -->
+  <section class="mt-12 grid lg:grid-cols-3 gap-8">
+
+    <!-- Opinion -->
+    <div class="lg:col-span-2">
+      <div class="flex items-center justify-between mb-5 border-b-2 border-brand-600 pb-2">
+        <h2 class="font-serif text-2xl font-bold">✍️ মতামত ও বিশ্লেষণ</h2>
+        <a href="#" class="text-sm text-brand-600 font-semibold">আরও →</a>
+      </div>
+      <div class="grid md:grid-cols-2 gap-5">
+        <article class="bg-white p-5 rounded-lg shadow-sm border-l-4 border-brand-600">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center text-white font-bold">ম.র</div>
+            <div>
+              <p class="font-semibold text-sm">ড. মাহফুজুর রহমান</p>
+              <p class="text-xs text-gray-500">অর্থনীতিবিদ</p>
+            </div>
+          </div>
+          <h3 class="font-serif font-bold text-lg hover:text-brand-600 cursor-pointer">মূল্যস্ফীতি নিয়ন্ত্রণে সরকারের ভূমিকা কতটা কার্যকর?</h3>
+          <p class="text-sm text-gray-600 mt-2 line-clamp-3">সাম্প্রতিক সময়ে মূল্যস্ফীতি কিছুটা কমলেও নিত্যপণ্যের দাম সাধারণ মানুষের নাগালের বাইরে...</p>
+        </article>
+        <article class="bg-white p-5 rounded-lg shadow-sm border-l-4 border-brand-600">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-gray-600 to-gray-800 flex items-center justify-center text-white font-bold">ফ.আ</div>
+            <div>
+              <p class="font-semibold text-sm">ফারহানা আক্তার</p>
+              <p class="text-xs text-gray-500">প্রযুক্তি বিশ্লেষক</p>
+            </div>
+          </div>
+          <h3 class="font-serif font-bold text-lg hover:text-brand-600 cursor-pointer">কৃত্রিম বুদ্ধিমত্তা ও বাংলাদেশের কর্মসংস্থান</h3>
+          <p class="text-sm text-gray-600 mt-2 line-clamp-3">এআই প্রযুক্তির দ্রুত বিকাশের ফলে বিশ্বজুড়ে কর্মসংস্থানের চিত্র পাল্টে যাচ্ছে...</p>
+        </article>
+      </div>
+    </div>
+
+    <!-- Video -->
+    <div>
+      <div class="flex items-center justify-between mb-5 border-b-2 border-ink pb-2">
+        <h2 class="font-serif text-2xl font-bold">📹 ভিডিও</h2>
+        <a href="#" class="text-sm text-brand-600 font-semibold">সব →</a>
+      </div>
+      <div class="space-y-4">
+        <div class="relative rounded-lg overflow-hidden group cursor-pointer">
+          <img src="https://images.unsplash.com/photo-1495020689067-958852a7765e?w=600&q=80" class="w-full h-44 object-cover" alt="">
+          <div class="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/60 transition">
+            <div class="w-14 h-14 bg-brand-600 rounded-full flex items-center justify-center">
+              <span class="text-white text-xl ml-1">▶</span>
+            </div>
+          </div>
+          <p class="absolute bottom-2 left-2 right-2 text-white text-sm font-semibold">সংসদে বাজেট আলোচনার সরাসরি সম্প্রচার</p>
+          <span class="absolute top-2 right-2 bg-black/70 text-white text-xs px-2 py-1 rounded">১২:৪৫</span>
+        </div>
+        <a href="#" class="flex gap-3 items-center hover:text-brand-600">
+          <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=200&q=80" class="w-24 h-16 object-cover rounded" alt="">
+          <p class="text-sm font-semibold line-clamp-2">ঢাকায় শীতের প্রকোপ: মানুষের ভোগান্তি</p>
+        </a>
+        <a href="#" class="flex gap-3 items-center hover:text-brand-600">
+          <img src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=200&q=80" class="w-24 h-16 object-cover rounded" alt="">
+          <p class="text-sm font-semibold line-clamp-2">ফুটবলে বাংলাদেশের ঐতিহাসিক জয়ের মুহূর্ত</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TWO COLUMN CATEGORY ============ -->
+  <section class="mt-12 grid lg:grid-cols-2 gap-8">
+
+    <!-- Politics -->
+    <div>
+      <div class="flex items-center justify-between mb-5 border-b-2 border-brand-600 pb-2">
+        <h2 class="font-serif text-2xl font-bold">🏛️ রাজনীতি</h2>
+        <a href="#" class="text-sm text-brand-600 font-semibold">আরও →</a>
+      </div>
+      <div class="space-y-4">
+        <article class="flex gap-4 bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition">
+          <img src="https://images.unsplash.com/photo-1541872703-74c5e44364f9?w=300&q=80" class="w-32 h-24 object-cover rounded" alt="">
+          <div>
+            <h3 class="font-serif font-bold hover:text-brand-600 cursor-pointer">সংসদে বিরোধী দলের কঠোর অবস্থান</h3>
+            <p class="text-sm text-gray-600 mt-1 line-clamp-2">বিরোধী দলনেতা আজ সংসদে সরকারের বিভিন্ন নীতি নিয়ে কঠোর সমালোচনা করেন...</p>
+            <p class="text-xs text-gray-500 mt-2">🕒 ৪ ঘণ্টা আগে</p>
+          </div>
+        </article>
+        <article class="flex gap-4 bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition">
+          <img src="https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=300&q=80" class="w-32 h-24 object-cover rounded" alt="">
+          <div>
+            <h3 class="font-serif font-bold hover:text-brand-600 cursor-pointer">স্থানীয় সরকার নির্বাচনের তফসিল ঘোষণা</h3>
+            <p class="text-sm text-gray-600 mt-1 line-clamp-2">নির্বাচন কমিশন আগামী মার্চে ধাপে ধাপে স্থানীয় সরকার নির্বাচনের তফসিল...</p>
+            <p class="text-xs text-gray-500 mt-2">🕒 ৬ ঘণ্টা আগে</p>
+          </div>
+        </article>
+        <article class="flex gap-4 bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition">
+          <img src="https://images.unsplash.com/photo-1575320191734-f5c6a8c3ea86?w=300&q=80" class="w-32 h-24 object-cover rounded" alt="">
+          <div>
+            <h3 class="font-serif font-bold hover:text-brand-600 cursor-pointer">নতুন রাজনৈতিক দলের যাত্রা শুরু</h3>
+            <p class="text-sm text-gray-600 mt-1 line-clamp-2">তরুণ প্রজন্মের উদ্যোগে গঠিত নতুন রাজনৈতিক দল আজ আনুষ্ঠানিকভাবে যাত্রা শুরু...</p>
+            <p class="text-xs text-gray-500 mt-2">🕒 ৮ ঘণ্টা আগে</p>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <!-- Sports -->
+    <div>
+      <div class="flex items-center justify-between mb-5 border-b-2 border-brand-600 pb-2">
+        <h2 class="font-serif text-2xl font-bold">⚽ খেলা</h2>
+        <a href="#" class="text-sm text-brand-600 font-semibold">আরও →</a>
+      </div>
+      <div class="space-y-4">
+        <article class="flex gap-4 bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition">
+          <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=300&q=80" class="w-32 h-24 object-cover rounded" alt="">
+          <div>
+            <h3 class="font-serif font-bold hover:text-brand-600 cursor-pointer">ক্রিকেটে নতুন অধিনায়ক নির্বাচন</h3>
+            <p class="text-sm text-gray-600 mt-1 line-clamp-2">বাংলাদেশ ক্রিকেট বোর্ড আজ নতুন অধিনায়কের নাম ঘোষণা করেছে...</p>
+            <p class="text-xs text-gray-500 mt-2">🕒 ৩ ঘণ্টা আগে</p>
+          </div>
+        </article>
+        <article class="flex gap-4 bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition">
+          <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=300&q=80" class="w-32 h-24 object-cover rounded" alt="">
+          <div>
+            <h3 class="font-serif font-bold hover:text-brand-600 cursor-pointer">ফুটবল লিগে মোহনবাগানের জয়</h3>
+            <p class="text-sm text-gray-600 mt-1 line-clamp-2">কলকাতা ময়দানে অনুষ্ঠিত ম্যাচে মোহনবাগান ২-১ গোলে জয়লাভ করেছে...</p>
+            <p class="text-xs text-gray-500 mt-2">🕒 ৫ ঘণ্টা আগে</p>
+          </div>
+        </article>
+        <article class="flex gap-4 bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition">
+          <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=300&q=80" class="w-32 h-24 object-cover rounded" alt="">
+          <div>
+            <h3 class="font-serif font-bold hover:text-brand-600 cursor-pointer">অলিম্পিকে বাংলাদেশের প্রস্তুতি</h3>
+            <p class="text-sm text-gray-600 mt-1 line-clamp-2">২০২৮ লস অ্যাঞ্জেলেস অলিম্পিককে সামনে রেখে ক্রীড়াবিদদের বিশেষ প্রশিক্ষণ...</p>
+            <p class="text-xs text-gray-500 mt-2">🕒 ৭ ঘণ্টা আগে</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="bg-ink text-gray-300 mt-16">
+  <div class="max-w-7xl mx-auto px-4 py-12 grid md:grid-cols-4 gap-8">
+    <div>
+      <h3 class="font-serif font-black text-2xl text-white mb-3"><span class="text-brand-500">টিজে</span> স্মার্ট নিউজ</h3>
+      <p class="text-sm leading-relaxed">সত্যের সন্ধানে, প্রজ্ঞার আলোকে। ২০১৫ সাল থেকে পাঠকদের বিশ্বস্ত সংবাদ মাধ্যম।</p>
+      <div class="flex gap-3 mt-4">
+        <a href="#" class="w-9 h-9 rounded-full bg-gray-800 hover:bg-brand-600 flex items-center justify-center">f</a>
+        <a href="#" class="w-9 h-9 rounded-full bg-gray-800 hover:bg-brand-600 flex items-center justify-center">𝕏</a>
+        <a href="#" class="w-9 h-9 rounded-full bg-gray-800 hover:bg-brand-600 flex items-center justify-center">▶</a>
+        <a href="#" class="w-9 h-9 rounded-full bg-gray-800 hover:bg-brand-600 flex items-center justify-center">in</a>
+      </div>
+    </div>
+    <div>
+      <h4 class="text-white font-bold mb-3">বিভাগসমূহ</h4>
+      <ul class="space-y-2 text-sm">
+        <li><a href="#" class="hover:text-brand-500">জাতীয়</a></li>
+        <li><a href="#" class="hover:text-brand-500">আন্তর্জাতিক</a></li>
+        <li><a href="#" class="hover:text-brand-500">অর্থনীতি</a></li>
+        <li><a href="#" class="hover:text-brand-500">খেলা</a></li>
+        <li><a href="#" class="hover:text-brand-500">বিনোদন</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-white font-bold mb-3">প্রতিষ্ঠান</h4>
+      <ul class="space-y-2 text-sm">
+        <li><a href="#" class="hover:text-brand-500">আমাদের সম্পর্কে</a></li>
+        <li><a href="#" class="hover:text-brand-500">সম্পাদকীয় নীতি</a></li>
+        <li><a href="#" class="hover:text-brand-500">বিজ্ঞাপন</a></li>
+        <li><a href="#" class="hover:text-brand-500">গোপনীয়তা</a></li>
+        <li><a href="#" class="hover:text-brand-500">যোগাযোগ</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-white font-bold mb-3">যোগাযোগ</h4>
+      <ul class="space-y-2 text-sm">
+        <li>📍 ১২৩ কারওয়ান বাজার, ঢাকা</li>
+        <li>📞 +৮৮০ ২ ৯৮৭৬৫৪৩</li>
+        <li>✉️ info@tjsmartnews.com</li>
+      </ul>
+    </div>
+  </div>
+  <div class="border-t border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex flex-col md:flex-row items-center justify-between text-xs text-gray-500">
+      <p>© ২০২৬ টিজে স্মার্ট নিউজ। সর্বস্বত্ব সংরক্ষিত।</p>
+      <p>ডিজাইন ও ডেভেলপমেন্ট: <span class="text-brand-500 font-semibold">TJ Smart Media</span></p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
